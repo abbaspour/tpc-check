@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+3rd party cookies status:
+<div id="status"></div>
+
+<iframe src="http://app2.com/tpc-set-cookie.html" style="display: none"></iframe>
+
+<script type="text/javascript">
+    let receiveMessage = function (evt) {
+        if (evt.data === 'tpc-no') {
+            console.log('third party cookies are not supported');
+            document.getElementById('status').innerHTML = "Disabled";
+        } else if (evt.data === 'tpc-yes') {
+            console.log('third party cookies are supported');
+            document.getElementById('status').innerHTML = "Enabled";
+        }
+    };
+    window.addEventListener("message", receiveMessage, false);
+</script>
+
+<iframe src="http://app2.com/tpc-check.html" style="display: none"></iframe>
+</body>

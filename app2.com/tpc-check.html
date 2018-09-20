@@ -1,0 +1,17 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<script>
+    let cookieName = "_auth0_custom_tpt";
+    if (window.parent) {
+        if (document.cookie.indexOf(cookieName) > -1) {
+            window.parent.postMessage('tpc-yes', '*');
+        } else {
+            window.parent.postMessage('tpc-no', '*');
+        }
+    }
+</script>
+</body>
+</html>
